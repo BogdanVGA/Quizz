@@ -7,12 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
+
 @RestController
 public class AddController {
 
     @RequestMapping(value = "/add/first/{first}/second/{second}", method = RequestMethod.GET)
-    public ResponseEntity<Long> addNumbers(@PathVariable long first, @PathVariable long second) {
-        Long result = first + second;
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public ResponseEntity<BigInteger> addNumbers(@PathVariable long first, @PathVariable long second) {
+        BigInteger bigFirst = BigInteger.valueOf(first);
+        BigInteger bigSecond = BigInteger.valueOf(second);
+        BigInteger bigResult = bigFirst.add(bigSecond);
+        return new ResponseEntity<>(bigResult, HttpStatus.OK);
     }
 }
