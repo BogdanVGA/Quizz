@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AddController {
 
     @RequestMapping(value = "/add/first/{first}/second/{second}", method = RequestMethod.GET)
-    public ResponseEntity<Integer> addNumbers(@PathVariable int first, @PathVariable int second) {
-        Integer result = first + second;
+    public ResponseEntity<Long> addNumbers(@PathVariable long first, @PathVariable long second) {
+        Long result = first + second;
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
